@@ -1,0 +1,19 @@
+method,perturbation,threshold,maximum_level_meeting_criterion,unit,note
+direct,translation,T1_relative_2pct,1,pixels,Descriptive threshold predefined by this study; not an industry standard.
+direct,translation,T2_absolute_0p01,1,pixels,Descriptive threshold predefined by this study; not an industry standard.
+direct,translation,T3_absolute_0p02,2,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,translation,T1_relative_2pct,1,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,translation,T2_absolute_0p01,1,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,translation,T3_absolute_0p02,2,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,translation,T1_relative_2pct,0,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,translation,T2_absolute_0p01,0,pixels,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,translation,T3_absolute_0p02,1,pixels,Descriptive threshold predefined by this study; not an industry standard.
+direct,rotation,T1_relative_2pct,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+direct,rotation,T2_absolute_0p01,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+direct,rotation,T3_absolute_0p02,1.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,rotation,T1_relative_2pct,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,rotation,T2_absolute_0p01,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_multiply,rotation,T3_absolute_0p02,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,rotation,T1_relative_2pct,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,rotation,T2_absolute_0p01,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.
+pfe_1x1,rotation,T3_absolute_0p02,0.0,degrees,Descriptive threshold predefined by this study; not an industry standard.

@@ -1,0 +1,6 @@
+﻿Design,Fusion,Best val IoU,Test IoU,Test MAE,Params (M),Interpretation
+PFE no gate,none,0.3990,0.4274,0.0406,12.739,Two-branch capacity control
+PFE additive,add,0.4121,0.4363,0.0341,12.739,Feature-injection control
+PFE residual,residual,0.4309,0.4559,0.0341,12.739,Response-preserving modulation
+PFE multiply,multiply,0.4434,0.4664,0.0327,12.739,Bounded DoLP-conditioned modulation
+PFE 1 × 1 fusion,learned 1 × 1,0.4331,0.4702,0.0325,13.264,Strong learned-fusion single-seed control

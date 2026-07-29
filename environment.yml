@@ -1,0 +1,18 @@
+name: pfe-unet
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pytorch=2.4.1
+  - numpy=2.3.4
+  - pandas=3.0.3
+  - scipy=1.17.1
+  - pillow=12.2.0
+  - matplotlib=3.10.9
+  - pyyaml
+  - tqdm
+  - opencv
+  - pip
+  - pip:
+      - PySODMetrics==1.6.2

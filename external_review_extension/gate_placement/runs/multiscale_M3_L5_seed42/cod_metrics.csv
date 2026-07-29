@@ -1,0 +1,2 @@
+run,num_images,s_measure,weighted_f_measure,mae_image_mean,e_measure_adaptive,e_measure_mean,e_measure_max,f_measure_adaptive,f_measure_mean,f_measure_max,metric_package
+multiscale_M3_L5_seed42,230,0.6934900238776311,0.4616488320506929,0.037700625893053265,0.8221402077638491,0.7395812785865121,0.7972118463279276,0.5399496073608895,0.515165297749647,0.5241771007831169,pysodmetrics==1.6.2

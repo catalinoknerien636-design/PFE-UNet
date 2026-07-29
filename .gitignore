@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+checkpoints/**/*.pt
+checkpoints/**/*.pth
+checkpoints/**/*.ckpt
+external_review_extension/**/checkpoints/
+external_review_extension/**/predictions/
+data/
+outputs/
+*.log
+.DS_Store
+Thumbs.db

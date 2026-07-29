@@ -1,0 +1,5 @@
+﻿reference,comparator,paired_images,mean_iou_difference,bootstrap_ci_low,bootstrap_ci_high,paired_test,raw_p,holm_adjusted_p,holm_reject_0_05,inference_scope
+PFE-DoLP,PFE-S0,230,0.023284692,0.000937146,0.045607711,Wilcoxon signed-rank,0.092906168,0.092906168,False,Exploratory image-level comparison conditional on five trained realizations per method and 230 released test images.
+PFE-DoLP,PFE-RGB-gray,230,0.027311854,0.005627783,0.049725924,Wilcoxon signed-rank,0.020140272,0.060420815,False,Exploratory image-level comparison conditional on five trained realizations per method and 230 released test images.
+PFE-DoLP,RGB+DoLP direct,230,0.035075692,0.017652188,0.052733046,Wilcoxon signed-rank,0.000226262,0.000905049,True,Exploratory image-level comparison conditional on five trained realizations per method and 230 released test images.
+PFE-DoLP,PFE-1x1,230,0.018998719,0.002721985,0.035683624,Wilcoxon signed-rank,0.042648319,0.085296638,False,Exploratory image-level comparison conditional on five trained realizations per method and 230 released test images.

@@ -1,0 +1,6 @@
+﻿perturbation,levels,directions_or_replicates,implementation
+translation,1;2;4;8;16 pixels,left;right;up;down,integer tensor shift; reflection padding; no wrap-around
+rotation,-2.0;-1.0;-0.5;0.5;1.0;2.0 degrees,signed angles,affine_grid/grid_sample; bilinear; reflection; align_corners=False
+blur,0.0;0.5;1.0;2.0;4.0 sigma,one deterministic transform,separable Gaussian; radius=ceil(3*sigma); reflection padding
+noise,0.0;0.01;0.02;0.05;0.10 SD,3 deterministic realizations,"Gaussian in [0,1]; clip; SHA256-derived CPU seed"
+quantization,8;6;4;2 bits,one deterministic transform,round(x*(2^b-1))/(2^b-1)

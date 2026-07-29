@@ -1,0 +1,23 @@
+﻿stage,variant,description,active_gate_levels,seed,action,selection_basis,status
+reference,M0,Existing no gate,,42,reuse_and_reevaluate,historical identity-bypass equivalence,VERIFIED_REUSED
+reference,M0,Existing no gate,,2026,reuse_only,author-specified existing formal result,REUSE_SOURCE_REQUIRED
+reference,M0,Existing no gate,,3407,reuse_only,author-specified existing formal result,REUSE_SOURCE_REQUIRED
+reference,M0,Existing no gate,,7819,reuse_only,author-specified existing formal result,REUSE_SOURCE_REQUIRED
+reference,M0,Existing no gate,,12011,reuse_only,author-specified existing formal result,REUSE_SOURCE_REQUIRED
+new_training,M1,L1 only,L1,42,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M1,L1 only,L1,2026,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M1,L1 only,L1,3407,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M3,L5 only,L5,42,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M3,L5 only,L5,2026,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M3,L5 only,L5,3407,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M4,Shallow L1-L3,L1;L2;L3,42,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M4,Shallow L1-L3,L1;L2;L3,2026,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M4,Shallow L1-L3,L1;L2;L3,3407,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M5,Deep L3-L5,L3;L4;L5,42,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M5,Deep L3-L5,L3;L4;L5,2026,train,frozen matched-seed partial-scale ablation,VERIFIED
+new_training,M5,Deep L3-L5,L3;L4;L5,3407,train,frozen matched-seed partial-scale ablation,VERIFIED
+reference,M6,Existing all five L1-L5,L1;L2;L3;L4;L5,42,reuse,formal five-seed PFE run,VERIFIED_REUSED
+reference,M6,Existing all five L1-L5,L1;L2;L3;L4;L5,2026,reuse,formal five-seed PFE run,VERIFIED_REUSED
+reference,M6,Existing all five L1-L5,L1;L2;L3;L4;L5,3407,reuse,formal five-seed PFE run,VERIFIED_REUSED
+reference,M6,Existing all five L1-L5,L1;L2;L3;L4;L5,7819,reuse,formal five-seed PFE run,VERIFIED_REUSED
+reference,M6,Existing all five L1-L5,L1;L2;L3;L4;L5,12011,reuse,formal five-seed PFE run,VERIFIED_REUSED

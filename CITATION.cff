@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "PFE-UNet: DoLP-Conditioned Feature Modulation for RGB-DoLP Camouflaged Object Segmentation"
+type: software
+authors:
+  - family-names: "Deng"
+    given-names: "Jianqiong"
+version: 1.0.0
+repository-code: "https://github.com/catalinoknerien636-design/PFE-UNet"
+url: "https://github.com/catalinoknerien636-design/PFE-UNet"
+license: MIT
+keywords:
+  - polarization imaging
+  - DoLP
+  - camouflaged object segmentation
+  - feature modulation

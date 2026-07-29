@@ -1,0 +1,5 @@
+﻿reference,comparator,images,wins,wins_percent,ties,ties_percent,losses,losses_percent,mean_delta_iou,median_delta_iou,q1_delta_iou,q3_delta_iou,tie_tolerance
+PFE-DoLP multiply,RGB+DoLP direct U-Net,230,135,58.70,7,3.04,88,38.26,0.035075692,0.015980632,-0.030594249,0.086833448,1e-06
+PFE-DoLP multiply,PFE-S0 multiply,230,122,53.04,5,2.17,103,44.78,0.023284692,0.004763326,-0.069589130,0.107093105,1e-06
+PFE-DoLP multiply,PFE-RGB-gray multiply,230,134,58.26,5,2.17,91,39.57,0.027311854,0.010526185,-0.055235815,0.094427472,1e-06
+PFE-DoLP multiply,PFE 1 × 1 fusion control,230,125,54.35,3,1.30,102,44.35,0.018998719,0.008178410,-0.045591415,0.072169375,1e-06
