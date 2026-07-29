@@ -1,5 +1,7 @@
 # PFE-UNet
 
+[![DOI](https://zenodo.org/badge/1305596882.svg)](https://doi.org/10.5281/zenodo.21679107)
+
 Companion code and frozen source data for **PFE-UNet: DoLP-Conditioned Feature Modulation for RGB-DoLP Camouflaged Object Segmentation**.
 
 ## Overview
@@ -74,5 +76,5 @@ licenses and terms.
 ## Citation
 
 Citation metadata for this software release are provided in `CITATION.cff`.
-After Zenodo archives the release, cite the version-specific DOI shown on the
-Zenodo record.
+For the archived `v1.0.0` release, cite the version-specific DOI:
+https://doi.org/10.5281/zenodo.21679108.
