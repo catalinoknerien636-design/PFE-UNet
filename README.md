@@ -1,8 +1,8 @@
-# PFE-UNet: corrected JEI source-inspection candidate
+# PFE-UNet: corrected JEI source-inspection release
 
 This is the prepared code companion for the three-author JEI manuscript, "Camouflaged object segmentation with bounded feature modulation conditioned on degree of linear polarization". It is distinct from the historical public PFE-UNet v1.0.0 repository.
 
-Current confirmed scope is confidential inspection by JEI editors and referees. No remote upload, public release or actual reviewer access is certified by this local preparation. Read ACCESS_AND_LICENSE_SCOPE.md.
+The author confirmed rights and authorized public publication of this specific code/configuration candidate on2026-10-15. This independent version covers corrected-study source inspection; the historical main/v1.0.0 release remains separate. Raw datasets, weights, pixel probabilities and the complete numerical records are not part of this public code release. Read ACCESS_AND_LICENSE_SCOPE.md.
 
 ## Contents
 
