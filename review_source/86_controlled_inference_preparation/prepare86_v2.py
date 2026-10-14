@@ -1,0 +1,46 @@
+from pathlib import Path
+import ast,json,sys,hashlib
+H=Path(__file__).resolve().parent;R=H.parent
+sys.path.insert(0,str(R/'80_pgsnet_module_qualification'));import qualify80 as q
+read=q.read;save=q.save;sha=q.a.digest
+q.guard.require_idle();resources=q.resources(17)
+p73=R/'73_device_specific_evaluation/contract_v2.json';assert sha(p73)=='1b93b1d2edb9a8a2a9a6f9b71d7f5d919e7684fd2253f653bcfc2f0c9d04d35e'
+methods=['direct_reference','pfe_reference','learned_fusion_reference','global_film_style','wide_direct'];seeds=[42,2026,3407,7819,12011]
+runs=[row for row in read(p73)['runs'] if row['dataset']=='PCOD' and row['entry']['config']['method'] in methods]
+assert len(runs)==25 and {(r['entry']['config']['method'],r['entry']['config']['seed']) for r in runs}=={(m,s) for m in methods for s in seeds}
+pilot=next(r for r in runs if r['entry']['config']['method']=='direct_reference' and r['entry']['config']['seed']==42)
+sources={}
+for rel in ['73_device_specific_evaluation/contract_v2.json','73_device_specific_evaluation/run_manifest_v2.csv','83_capacity_compute_evidence/contract.json','83_capacity_compute_evidence/analysis_v1/compute_summary.json','83_capacity_compute_evidence/artifact_manifest.json','85_device_lifecycle_qualification/contract.json','85_device_lifecycle_qualification/artifact_manifest.json','85_device_lifecycle_qualification/independent_assessment.json','85_device_lifecycle_qualification/job85.py','85_device_lifecycle_qualification/supervisor85.py','85_device_lifecycle_qualification/worker85.py','84_worker_supervisor_qualification/win84_v4.py','54_pcod_safe_checkpoint_adapter/tensor54.py','54_pcod_safe_checkpoint_adapter/metadata54.py','54_pcod_safe_checkpoint_adapter/plan.json','80_pgsnet_module_qualification/qualify80.py','75_pgsnet_resource_profile/profile75_v2.py','36_pgsnet_pretrained_contract/adapter.py','24_pcod_reference_acceptance/process_guard.py','15_pcod_training/pcod_models.py','20_pcod_backend_diagnostics/resize_candidate.py','20_pcod_backend_diagnostics/resize_factor2.py','13_registration_evaluation/reference/04_multiscale_ablation/code/models/__init__.py','13_registration_evaluation/reference/04_multiscale_ablation/code/models/unet.py','13_registration_evaluation/reference/04_multiscale_ablation/code/models/pfe_unet_reference.py','83_capacity_compute_evidence/manuscript/PFE_UNet_Manuscript_Capacity_Cost_v14.docx','83_capacity_compute_evidence/manuscript/PFE_UNet_Supplementary_Capacity_Cost_v9.docx']:
+ p=R/rel
+ if not p.exists():raise FileNotFoundError(p)
+ sources[str(p)]=sha(p)
+assert sources[str(R/'85_device_lifecycle_qualification/artifact_manifest.json')]=='779982103c7ebc12f92ad9d3fe661de47c10cdb292e373d22f9d5ccdfd15a8ca'
+for p,h in read(R/'54_pcod_safe_checkpoint_adapter/plan.json')['source_sha256'].items():
+ assert sha(p)==h;sources[p]=h
+for key in ['runtime','expected_worker_image']:
+ p=Path(read(R/'85_device_lifecycle_qualification/contract.json')[key]);sources[str(p)]=sha(p)
+for p in H.glob('*.py'):
+ ast.parse(p.read_text(encoding='utf-8-sig'));sources[str(p)]=sha(p)
+# Bind all25 original selected checkpoints and their existing tensor-evidence records.
+registry=[]
+for row in runs:
+ cfg=row['entry']['config'];best=Path(cfg['output_dir'])/'best.pt';ev=Path(row['tensor_evidence']);evidence=read(ev)
+ assert sha(best)==row['best_sha256']
+ assert evidence['artifacts_sha256']['best.pt']==row['best_sha256'] and evidence['marker_sha256']==row['completion_sha256']
+ sources[str(best)]=row['best_sha256'];sources[str(ev)]=sha(ev)
+ registry.append({'run_id':cfg['run_id'],'method':cfg['method'],'seed':cfg['seed'],'base_channels':cfg['base_channels'],'selected_epoch':row['selected_epoch'],'best_path':str(best),'best_sha256':row['best_sha256'],'completion_sha256':row['completion_sha256'],'tensor_evidence':str(ev),'tensor_evidence_sha256':sha(ev),'tensor_keys':len(evidence['best_tensor_values']),'future_reader':'57 safe_reader57.Reader(entries=[original73 entry]); verify every loaded tensor against existing55/56 evidence. Only the stage86 Direct-seed42 pilot uses existing54 NPY provider.'})
+for rel in ['57_rgbp_safe_runtime/safe_reader57.py','57_rgbp_safe_runtime/symbolic57.py']:
+ p=R/rel;sources[str(p)]=sha(p)
+pilot_state=R/'54_pcod_safe_checkpoint_adapter/conversions'/pilot['entry']['config']['run_id']/'state'
+for name in ['manifest.json','complete.json']:
+ p=pilot_state/name;sources[str(p)]=sha(p)
+# Cyclic order makes each method occupy every position once across the five seed blocks.
+order=[next(x['run_id'] for x in registry if x['seed']==s and x['method']==methods[(j+i)%5]) for i,s in enumerate(seeds) for j in range(5)]
+protocol={'version':'prospective_cost86_v1','scope':'all25 original validation-selected PCOD U-Net checkpoints; no accuracy evaluation','methods':methods,'seeds':seeds,'run_order':order,'run_registry':registry,'input_shape':[1,4,352,352],'dtype':'float32','input':'CPU arange mod257 /256, reshape1x4x352x352; fixed synthetic tensor shared by all checkpoints','eval_mode':True,'gradients':False,'cpu_threads':1,'processes':'one fresh worker per checkpoint, sequential single RX9070XT index1','warmup_iterations':5,'measured_iterations':30,'warmup_retained':True,'timing_start':'after input/model setup, immediately before model(device-resident-input)','timing_end':'after device sigmoid and full contiguous float32 probability CPU readback returns','included':'forward, device sigmoid, CPU readback, Python dispatch, any backend fallback and allocation','excluded':'startup/imports, state loading, initial H2D input/model transfer, file/JSON writes, CPU finite/hash checks, teardown','output_shape':[1,1,352,352],'input_tensor_bytes':4*352*352*4,'output_readback_bytes':352*352*4,'time_unit':'perf_counter_ns raw integer deltas; derived milliseconds','aggregation':'keep all5 warmups and30 measured observations per run; report per-run median/p25/p75/min/max and mean of5 run medians with sample SD; p25/p75 linear interpolation; no outlier deletion, no latency significance test, no independence claim for within-run timings','order_limit':'cyclic method positions balance position across seeds, not hardware temperature/clock or external processes; one hardware session remains descriptive','memory':'host actual-worker sampled private commit/working set and OS reported process peaks; baseline and whole-lifecycle reported separately; no GPU memory telemetry','failure':'stop on first failure or resource gate; retain partial records; never silently retry/drop/replace runs or lower warmup/repetitions','measurement_execution_allowed':False,'reason':'Only planning/meta accounting and a separate three-forward Direct-seed42 safety pilot authorized by this stage contract; later full25 run needs a sealed execution contract after review','scientific_boundary':'no CPU/DML comparison; no PGSNet; no train/backward/optimizer; no test images/masks; no modification of58 training/45560test/original35-23/53-disabled','references':[{'url':'https://docs.pytorch.org/tutorials/recipes/recipes/benchmark.html','use':'General warmup/thread/timing-completion principles; CUDA synchronization examples do not certify DirectML Timer synchronization.'},{'url':'https://learn.microsoft.com/en-us/windows/ai/directml/pytorch-windows','use':'DirectML PyTorch tensor device pattern; no install or package change.'}]}
+save(H/'prospective_protocol.json',protocol);sources[str(H/'prospective_protocol.json')]=sha(H/'prospective_protocol.json')
+c85=read(R/'85_device_lifecycle_qualification/contract.json')
+c={k:c85[k] for k in ['locks','runtime','expected_worker_image','venv_prefix','expected_torch','expected_directml','device_index','expected_device_name','launch_available_ram_gib','minimum_available_ram_gib','abort_available_ram_gib','abort_available_commit_gib','minimum_disk_gib','private_process_cap_gib','working_set_cap_gib','job_commit_cap_gib','job_active_process_limit']}
+c.update(purpose='five-model abstract resource accounting and one original-weight Direct-seed42 device safety pilot; no benchmark matrix yet',sources=sources,methods=methods,seeds=seeds,pilot_run=pilot,pilot_forwards=3,pilot_timeout_seconds=180,pilot_only=True,training_allowed=False,numerical_diagnosis_allowed=False,full25_benchmark_allowed=False,meta_resource_gate_total_logical_gib=2.0,model_source_modifications_allowed=False,checkpoint_selection_changed=False)
+q.verify(c);save(H/'contract.json',c);save(H/'preflight.json',{'contract_sha256':sha(H/'contract.json'),'sources':len(sources),'registry_count':len(registry),'all25_original_checkpoint_sha256_verified':True,'tensor_evidence_metadata_verified':True,'all25_deserialized_again':False,'pilot_only':True,'resources':resources,'utc':q.utc()});print(json.dumps({'sources':len(sources),'registry':len(registry),'contract_sha256':sha(H/'contract.json')}))
+
+

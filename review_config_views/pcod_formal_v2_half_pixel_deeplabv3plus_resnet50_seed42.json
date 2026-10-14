@@ -1,0 +1,64 @@
+{
+  "status": "DRAFT NOT SHARED; historical configuration reading view only; not execution authorization",
+  "original_config_raw_sha256": "c7596c3fb9405dd4e647162ab28a22a8684e820042ae388afdbb4c95c1ca32ca",
+  "original_config_object_sha256": "7da2c16ce7456403e90e8f09f75e8ca2abd34947562bf0dc90fcd1fcf8788954",
+  "host_paths_removed": true,
+  "path_sensitive_identity_valid_after_sanitization": false,
+  "config": {
+    "run_id": "pcod_formal_v2_half_pixel_deeplabv3plus_resnet50_seed42",
+    "purpose": "formal",
+    "method": "deeplabv3plus_resnet50",
+    "seed": 42,
+    "image_size": 352,
+    "base_channels": null,
+    "batch_size": 4,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "horizontal_flip_probability": 0,
+    "loss": "historical_bce_dice_v1",
+    "sampling": "legacy_global_torch_rng",
+    "device": "directml",
+    "device_index": 1,
+    "expected_device_name": "AMD Radeon RX 9070 XT",
+    "dataset_root": "<LOCAL_DATASET_ROOT>",
+    "train_manifest": "<LOCAL_TRAIN_MANIFEST>",
+    "validation_manifest": "<LOCAL_VALIDATION_MANIFEST>",
+    "manifest_sha256": {
+      "train": "360d27a7740b10528af2e122d8e5d6d4efc3d6859167344f3dffa2e988df201d",
+      "validation": "6d68a1065d9ccfdf3083614d02852465cfd70b4090056516c3e57ca5ac1c0317"
+    },
+    "output_dir": "<LOCAL_HISTORICAL_OUTPUT_ROOT>",
+    "training_authorized": true,
+    "protocol_frozen": true,
+    "sample_limits": {
+      "train": null,
+      "validation": null
+    },
+    "model_spec": {
+      "encoder_name": "resnet50",
+      "encoder_depth": 5,
+      "encoder_weights": null,
+      "encoder_output_stride": 16,
+      "decoder_channels": 256,
+      "decoder_atrous_rates": [
+        6,
+        12,
+        18
+      ],
+      "decoder_aspp_separable": true,
+      "decoder_aspp_dropout": 0.5,
+      "in_channels": 4,
+      "classes": 1,
+      "activation": null,
+      "upsampling": 4,
+      "aux_params": null
+    },
+    "unet_resampling": "pytorch_half_pixel_bilinear_factor2_v1",
+    "unet_resampling_applicable": false,
+    "initialization": "from_scratch_no_historical_checkpoint_warm_start",
+    "comparison_family": "pcod_corrected_backend_full_reference_v2",
+    "candidate_only": false,
+    "execution_engine": "pcod_portable25_v1"
+  }
+}

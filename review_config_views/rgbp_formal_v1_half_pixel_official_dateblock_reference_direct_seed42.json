@@ -1,0 +1,46 @@
+{
+  "status": "DRAFT NOT SHARED; historical configuration reading view only; not execution authorization",
+  "original_config_raw_sha256": "227dbb53fa5288eeb0824d3348567ae9b5b4ab46bcc31b8a0df1f7e53d614850",
+  "original_config_object_sha256": "9447b813d1c27014f9af26948c7e3695be4e742db3fd62b4ee47034127d702af",
+  "host_paths_removed": true,
+  "path_sensitive_identity_valid_after_sanitization": false,
+  "config": {
+    "run_id": "rgbp_formal_v1_half_pixel_official_dateblock_reference_direct_seed42",
+    "purpose": "formal",
+    "method": "direct",
+    "seed": 42,
+    "image_size": 352,
+    "base_channels": 32,
+    "batch_size": 4,
+    "epochs": 50,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "horizontal_flip_probability": 0.5,
+    "device": "directml",
+    "device_index": 1,
+    "expected_device_name": "AMD Radeon RX 9070 XT",
+    "dataset_root": "<LOCAL_DATASET_ROOT>",
+    "train_manifest": "<LOCAL_TRAIN_MANIFEST>",
+    "validation_manifest": "<LOCAL_VALIDATION_MANIFEST>",
+    "manifest_sha256": {
+      "train": "7048f31b03c29b53051fc3bf804730ba7de3a810d4167ca1be74e215bd6f7572",
+      "validation": "d200fea35aad395491f4f148fcbf6e9904fc1ccdbb315d268a1f8723a5d49800"
+    },
+    "output_dir": "<LOCAL_HISTORICAL_OUTPUT_ROOT>",
+    "training_authorized": true,
+    "protocol_frozen": true,
+    "sample_limits": {
+      "train": null,
+      "validation": null
+    },
+    "unet_resampling": "pytorch_half_pixel_bilinear_factor2_v1",
+    "initialization": "from_scratch_no_development_or_historical_warm_start",
+    "protocol_variant": "official_dateblock_reference",
+    "candidate_only": false,
+    "sample_counts": {
+      "train": 2589,
+      "validation": 617
+    },
+    "execution_engine": "rgbp_portable41_v1"
+  }
+}
